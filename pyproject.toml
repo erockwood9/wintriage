@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wintriage"
+version = "0.1.0"
+description = "A Windows tool that simplifies checks and tasks often done by hand, and keeps them in one place."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Ethan Rockwood" }]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: System Administrators",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+]
+# No runtime dependencies on purpose: the tool uses only the standard library,
+# so installing it is quick and there is nothing third-party to break.
+dependencies = []
+
+[project.optional-dependencies]
+# Tools only developers need. Install with: pip install -e ".[dev]"
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# E/F: basic errors, I: import order, B: likely bugs, UP: outdated syntax
+select = ["E", "F", "I", "B", "UP"]

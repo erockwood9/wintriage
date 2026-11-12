@@ -1,23 +1,52 @@
-# infra-monitor
+# wintriage
 
-A Python command-line tool for monitoring system health and network
-availability, built as a learning project in infrastructure automation.
+A Windows tool that simplifies checks and tasks that are often done by hand, and keeps
+them all in one place.
 
-## Status
+**Status:** early development. Only the OS info check works so far.
 
-This is my first commit and scaffholding. Work in progress...
+## Features
 
-## Planned features
+- [x] OS info
+- [ ] Disk health
+- [ ] Battery health
+- [ ] System file and Windows image checks
+- [ ] Network checks
+- [ ] Command-line interface and reports
+- [ ] Optional repair of problems found
 
-- [ ] System health checks (CPU, memory, disk)
-- [ ] Network diagnostics (DNS, TCP, HTTP)
-- [ ] Configurable monitoring profiles (YAML)
-- [ ] JSON and CSV reports
-- [ ] PowerShell collectors for Windows systems
-- [ ] CI with GitHub Actions (tests, linting, dependency scanning)
+## Installation
 
-## Why I'm building this
+Requires Windows 10 or 11 and Python 3.11 or newer.
 
-I want hands-on experience automating some of the tasks I currently
-do working in IT
-: ...
+```powershell
+git clone https://github.com/erockwood9/wintriage.git
+cd wintriage
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+```
+
+## Usage
+
+There is no command-line interface yet. To run the one check that exists:
+
+```powershell
+python -c "from wintriage.os_info import check_os_info; print(check_os_info())"
+```
+
+## Development
+
+```powershell
+pytest
+ruff check .
+```
+
+## About
+
+I work in IT support and wanted one place for the checks I usually run by hand. It is also
+a project for practicing how to structure and test a Python tool.
+
+## License
+
+[MIT](LICENSE)

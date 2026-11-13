@@ -1,5 +1,7 @@
 # wintriage
 
+[![CI](https://github.com/erockwood9/wintriage/actions/workflows/ci.yml/badge.svg)](https://github.com/erockwood9/wintriage/actions/workflows/ci.yml)
+
 A Windows tool that simplifies checks and tasks that are often done by hand, and keeps
 them all in one place.
 
